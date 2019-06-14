@@ -1,9 +1,8 @@
-
-import {pnxXmlConfig} from './prmBriefResultContainerAfter/pnxXml'
 import {tLevelFacetteConfig} from './prmFacetExactAfter/customTLevelFacette'
+import {authentificationAutresInstConfig} from './prmLoginAfter/authentificationAutresInst'
 
-let app = angular.module('viewCustom',[]);
+let app = angular.module('centralCustom',[]);
 if (app){
-    app.component('prmBriefResultContainerAfter', pnxXmlConfig);
     app.component('prmFacetExactAfter', tLevelFacetteConfig);
+    app.component('prmLoginAfter', authentificationAutresInstConfig);
 }
