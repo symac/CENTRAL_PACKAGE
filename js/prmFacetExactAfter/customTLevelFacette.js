@@ -9,17 +9,17 @@ class tLevelFacetteController {
     if (facetType == "tlevel"){
         /*Récupère les valeurs de la tlevel facette*/
         var tlevelFacetsValues = this.parentCtrl.facetGroup.values;
-        console.log(tlevelFacetsValues);
+        // console.log(tlevelFacetsValues);
         /*Parcours du tableau des valeurs*/
         for (var i = 0; i < tlevelFacetsValues.length; i++) {
             /*Récupère le nom de la facette*/
             var facetName = tlevelFacetsValues[i].value;
-            console.log(facetName);
+            // console.log(facetName);
             /*On supprime les entrées relatives à la tlevel*/
             if (['peer_reviewed', 'open_access', 'available'].includes(facetName)) {
                 tlevelFacetsValues.splice(i, 1);
                 i = i - 1;
-                console.log("Supprimée");
+                // console.log("Supprimée");
             }
         }
     }

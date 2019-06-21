@@ -1,8 +1,10 @@
 class customBriefDisplayController {
   constructor(){
     console.log('---->33PUDB customBriefDisplayController');
-    console.log(this);
-    /*Mise en forme PCI */
+    // console.log(this);
+    /******************* */
+    /* Mise en forme PCI */
+    /******************* */
     if (this.parentCtrl.item.context == "PC") {
         var firstLinetext = this.parentCtrl.otherLines;
         console.log(this.parentCtrl.item.pnx.display.title[0]);
@@ -40,18 +42,22 @@ class customBriefDisplayController {
             values : [hFirstValue],
             delimiter : " ;"
         };
-        console.log(firstLinetext);
+        // console.log(firstLinetext);
         firstLinetext.unshift(hFirstLine);
         }
-        console.log(this.parentCtrl.item.pnx.control.recordid[0]);
-        console.log(this.parentCtrl.item.context);
+        // console.log(this.parentCtrl.item.pnx.control.recordid[0]);
+        // console.log(this.parentCtrl.item.context);
+        
+        /****************************************************************************** */
+        /* Empêche l'affichage des deux champs lds01 dans le cas d'une notice fusionnée */
+        /****************************************************************************** */
         if (this.parentCtrl.item.context == "L" && this.parentCtrl.item.pnx.control.recordid[0].startsWith('dedup')) {
             var otherLines = this.parentCtrl.otherLines;
             for (var i = 0; i < otherLines.length; i++) {
-                console.log(otherLines[i].values[0].key);
+                // console.log(otherLines[i].values[0].key);
                 if (otherLines[i].values[0].key == 'lds01'){
                     var bibAddr = otherLines[i].values[0].text[0];
-                    console.log(bibAddr);
+                    // console.log(bibAddr);
                     otherLines[i].values[0].text[0] = bibAddr.replace(/^(.*?)<br\/>.*/, "$1");
                 }
                 
