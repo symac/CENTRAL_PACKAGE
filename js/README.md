@@ -14,19 +14,19 @@ Suprime les entrées 'peer_reviewed','open_access'et'available'
 Remonte la deuxième mention de disponibilté qui est parfois non affichée quand pour un même document notices de la version imprimée et électronique ont été fusionnées. Case # 00641786 chez Exlib
  
 ```
-- prmBriefResultAfter:
--- ustomBriefDisplay.js
-- prmFacetExactAfter:
--- ustomTLevelFacette.js
-- prmFullViewServiceContainerAfter:
--- ispoElecAutresInst.html
--- ispoElecAutresInst.js
--- EADME.md
-- prmLoginAfter:
--- uthentificationAutresInst.html
--- uthentificationAutresInst.js
--- EADME.md
-- prmSearchResultAvailabilityLineAfter:
--- ffDispo.html
--- ffDispo.js
+|-- prmBriefResultAfter:
+|   |-- customBriefDisplay.js
+|-- prmFacetExactAfter:
+|   |-- customTLevelFacette.js
+|-- prmFullViewServiceContainerAfter:
+|   |-- dispoElecAutresInst.html
+|   |-- dispoElecAutresInst.js
+|   |-- README.md
+|-- prmLoginAfter:
+|   |-- authentificationAutresInst.html
+|   |-- authentificationAutresInst.js
+|   |-- README.md
+|-- prmSearchResultAvailabilityLineAfter:
+|   |-- affDispo.html
+|   |-- affDispo.js
 ```
