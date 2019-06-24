@@ -16,7 +16,7 @@ class dispoElecAutresInstController {
       this.REBUB_institution = this.parentCtrl.configurationUtil.vid.match(/(33PUDB_\S+?)_/)[1];
       this.institutionsLIst = [];
       this.dispos = this.parentCtrl.item.pnx.delivery.delcategory;
-      this.isShowContent = [];
+      this.isShowContent = {};
       // console.log(this);
       //Je construit une liste avec chaque institution proposant l'accès électronique au documment (pnx/delivery/delcategory)
       for (var i = 0; i < this.dispos.length; i++) {
@@ -61,7 +61,7 @@ class dispoElecAutresInstController {
                    + institution 
                    + "/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=" 
                    + ctxTim 
-                   + "&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-33PUDB_Alma_Marc&req_id=&rft_dat=ie=" 
+                   + "&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-33PUDB_Alma_Marc&req_id=&rft_dat=" 
                    + ids_notice.toString() 
                    + ",language=" 
                    + langue
@@ -71,9 +71,15 @@ class dispoElecAutresInstController {
                    + this.REBUB_vue;
     /*Masquage/Affichage  de l'iframe*/
     /******************************** */
+    for (var i in this.isShowContent) {
+      console.log(i);
+      if(i != institution){
+        this.isShowContent[i] = false;  
+      }
+    }
     this.isShowContent[institution] = !this.isShowContent[institution];
     this.templateURL = 'custom/CENTRAL_PACKAGE/js/prmFullViewServiceContainerAfter/bouttonAfficheDispoElec.html';
-    console.log(this.openUrl);
+    console.log(this.isShowContent);
 
   }
   trustAsUrl(url){
