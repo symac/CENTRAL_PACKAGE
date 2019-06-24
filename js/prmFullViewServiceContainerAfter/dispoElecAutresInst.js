@@ -36,6 +36,7 @@ class dispoElecAutresInstController {
     /*Construction de l'Open Url*/
     /************************** */
     var instanceAlma = institution.match(/33PUDB_(.*)/)[1].toLowerCase();
+    var skin = institution + '_VU1';
     var langue = this.parentCtrl.item.lang3 ? this.parentCtrl.item.lang3 : "fre";
     var date = new Date();
     var ctxTim = date.toISOString();
@@ -68,7 +69,7 @@ class dispoElecAutresInstController {
                    + ",view=" 
                    + this.REBUB_vue
                    + "&svc_dat=viewit&u.ignore_date_coverage=true&is_new_ui=true&Force_direct=false&req.skin=" 
-                   + this.REBUB_vue;
+                   + skin;
     /*Masquage/Affichage  de l'iframe*/
     /******************************** */
     for (var i in this.isShowContent) {
