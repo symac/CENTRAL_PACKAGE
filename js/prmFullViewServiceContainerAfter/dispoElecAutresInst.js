@@ -5,29 +5,33 @@ import dispoElecAutresInstHTML from './dispoElecAutresInst.html'
 
 class dispoElecAutresInstController {
   constructor($sce) {
-    console.log('---->dispoElecAutresInstController');
+    console.log(this);
     this.sce = $sce;
-    this.serviceName = this.parentCtrl.service.scrollId;
-    /*On ne travaille qu'au niveau du view it*/
-    if (this.serviceName == "getit_link1_0") {
-      //Vue actuelle
-      this.REBUB_vue = this.parentCtrl.configurationUtil.vid;
-      //Je récupère le code de l'institution
-      this.REBUB_institution = this.parentCtrl.configurationUtil.vid.match(/(33PUDB_\S+?)_/)[1];
-      this.institutionsLIst = [];
-      this.dispos = this.parentCtrl.item.pnx.delivery.delcategory;
-      this.isShowContent = {};
-      // console.log(this);
-      //Je construit une liste avec chaque institution proposant l'accès électronique au documment (pnx/delivery/delcategory)
-      for (var i = 0; i < this.dispos.length; i++) {
-        var dispoElement = this.dispos[i].match(/(\$\$V|^)(.*?)\$\$I(.*?)(\$|$)/);
-        if (dispoElement[2] == "Alma-E" && dispoElement[3] != this.REBUB_institution && dispoElement[3] != "33PUDB_NETWORK") {
-          this.institutionsLIst.push(dispoElement[3]);
-          this.isShowContent[dispoElement[3]] = false;
+    /* Parfois les services ne sont pas passés au controleur parent...*/
+    if (typeof this.parentCtrl.service !== 'undefined'){
+      this.serviceName = this.parentCtrl.service.scrollId;
+      /*On ne travaille qu'au niveau du view it*/
+      if (this.serviceName == "getit_link1_0" && this.parentCtrl.service.linkElement.category == "Alma-E") {
+        console.log('---->dispoElecAutresInstController');
+        //Vue actuelle
+        this.REBUB_vue = this.parentCtrl.configurationUtil.vid;
+        //Je récupère le code de l'institution
+        this.REBUB_institution = this.parentCtrl.configurationUtil.vid.match(/(33PUDB_\S+?)_/)[1];
+        this.institutionsLIst = [];
+        this.dispos = this.parentCtrl.item.pnx.delivery.delcategory;
+        this.isShowContent = {};
+        console.log(this);
+        //Je construit une liste avec chaque institution proposant l'accès électronique au documment (pnx/delivery/delcategory)
+        for (var i = 0; i < this.dispos.length; i++) {
+          var dispoElement = this.dispos[i].match(/(\$\$V|^)(.*?)\$\$I(.*?)(\$|$)/);
+          if (dispoElement[2] == "Alma-E" && dispoElement[3] != this.REBUB_institution && dispoElement[3] != "33PUDB_NETWORK") {
+            this.institutionsLIst.push(dispoElement[3]);
+            this.isShowContent[dispoElement[3]] = false;
+          }
         }
+        this.dispo_autres_inst = this.institutionsLIst.length > 0 ? true : false;
+        // console.log(this.institutionsLIst);
       }
-      this.dispo_autres_inst = this.institutionsLIst.length > 0 ? true : false;
-      // console.log(this.institutionsLIst);
     }
   }
 
