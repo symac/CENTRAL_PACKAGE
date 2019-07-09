@@ -27,7 +27,7 @@ a.md-button[aria-label="nui.mainmenu.label.tags"] {display:none;}
 
 /*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
 prm-facet h2[translate="nui.facets.title"]{
-    display: none;
+    /*display: none;*/
 }
 /*END 33PUDB_NETWORK_AFA_FACETTES*/
 /*33PUDB Citation trail
