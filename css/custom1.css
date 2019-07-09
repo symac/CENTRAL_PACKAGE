@@ -27,7 +27,7 @@ a.md-button[aria-label="nui.mainmenu.label.tags"] {display:none;}
 
 /*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
 prm-facet h2[translate="nui.facets.title"]{
-    /*display: none;*/
+  display: none;
 }
 /*END 33PUDB_NETWORK_AFA_FACETTES*/
 /*33PUDB Citation trail
@@ -127,3 +127,98 @@ prm-login.layout-row  {
   background-color: white;
 }
 /*END 33PUDB_NETWORK_AFA_Authentification autres institution*/
+
+/*Sent To FIxe en bas de page */
+.full-view-section {
+  margin-top: 1em;
+}
+
+#action_list, #action_list .section-head {
+  margin: 0;
+}
+
+#action_list .section-head {
+  display: none;
+}
+
+#action_list prm-action-list {
+  position: fixed;
+  bottom: 0;
+  max-width: 68%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* left: 50%; on positionne l'élément à la moitié de l'écran
+	margin-left: -100px; on applique une marge négative de la moitié de la largeur de l'élément */
+  z-index: 98;
+  background-color: gainsboro;
+  box-shadow: 0 1px 0 0 rgba(58,58,58,.1),0 1px 5px 0 rgba(58,58,58,.2);
+}
+#action_list prm-action-list .container-nav-controls {
+  z-index: 100;
+}
+#action_list prm-action-list > md-nav-bar .md-nav-item .md-button {
+  line-height: 16px;
+}
+#action_list prm-action-list > md-nav-bar .md-nav-item .md-button md-icon svg {
+  height: 110%;
+  width: 110%;
+}
+#action_list prm-action-list .md-button.accessible-close {
+  width: inherit;
+  height: inherit;
+  left: inherit;
+  overflow: inherit;
+  position: inherit;
+  margin: 0.5em 0 0.5em 0 !important;
+}
+prm-full-view .send-actions-content-item {
+  padding: 0;
+}
+#action_list prm-action-list .send-actions-content-item div.flex {
+  max-width: 500px;
+}
+/*.prm-alert-border, .bar.alert-bar, .classic-input .search-scope {
+  border-color: #e8e8e8;
+}
+.prm-alert-bg, .bar.alert-bar, .classic-input .search-scope {
+  background-color: #f8f8f8;
+}
+
+.bar.alert-bar {
+  height: 48px;
+  min-height: 48px;
+  margin-bottom: 6px;
+} */
+
+@media screen and (max-width: 959px) {
+  #action_list prm-action-list {
+      max-width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+  }
+  #action_list prm-action-list > md-nav-bar .md-button {
+      line-height: 14px;
+  }
+  #action_list prm-action-list > md-nav-bar .md-nav-item .md-button md-icon svg {
+      height: 90%;
+      width: 90%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  prm-action-list > md-nav-bar .md-nav-item {
+      max-width: 65px;
+  }
+  #action_list prm-action-list {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+  }
+  #action_list prm-action-list > md-nav-bar .md-button {
+      min-width: 50px;
+      padding: 0.5em;
+  }
+}
