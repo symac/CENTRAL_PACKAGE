@@ -1,80 +1,18 @@
 ﻿@charset "UTF-8";
 
-/*Uncomment the follwoing lines to move facets to the left*/
-
 /*
-prm-search > md-content.md-primoExplore-theme .main {
-    display: -webkit-flex; !* Safari *!
-    -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
-    display: flex;
-    flex-flow: row-reverse wrap;
-
-}
-.screen-gt-sm .sidebar{
-    webkit-flex: 0 0 15%;
-    flex: 0 0 15%;
-}
-
+##     ## ######## ##    ## ##     ## 
+###   ### ##       ###   ## ##     ## 
+#### #### ##       ####  ## ##     ## 
+## ### ## ######   ## ## ## ##     ## 
+##     ## ##       ##  #### ##     ## 
+##     ## ##       ##   ### ##     ## 
+##     ## ######## ##    ##  ####### 
 */
-/*33PUDB Suppression des TAGS*/
-/* Hide Tags in Detailed Display */
-[aria-label="Tags"]{display:none;}
-#tags{display:none;}
 
-/* Hide Tags in Menu Tab */
-a.md-button[aria-label="TAGS"] {display:none;}
-a.md-button[aria-label="nui.mainmenu.label.tags"] {display:none;}
-
-/*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
-prm-facet h2[translate="nui.facets.title"]{
-  display: none;
-}
-/*END 33PUDB_NETWORK_AFA_FACETTES*/
-/*33PUDB Citation trail
-#################################################
-
-/*33PUDB_NETWORK_CL_effacement liens dans citation trails*/
-prm-times-cited{
-  display: none;
-}
-
-prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"], prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.sources"],prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.or"]{
-  display: none;
-}
-
-
-
-
-
-/*##############################################################*/
-/*33PUDB_NETWORK_CL_TRIE Déplace le trie au dessus des facettes*/
-@media screen and (min-width: 960px) {
-  prm-facet .primo-scrollbar {
-	overflow-x: visible !important;
-	}
-  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row  {
-    margin-left: 345%;
-    position: absolute;
-    margin-top: -27px;
-    z-index:1;
-  }
-  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row > div > h3 {
-    font-size: 0.85em;
-    font-weight: 600;
-  }
-  prm-search-result-sort-by {
-    padding-bottom: 6px;
-    font-size: 14px;
-  }
-  prm-facet > div.primo-scrollbar.is-stuck > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row {
-    display:none;
-  }
-}
-/*END 33PUDB_NETWORK_CL_TRIE*/
-
-/*##############################################################*/
-/* compte lecteur*/
-/*disparition amendes+frais, modification infos personnelles*/
+/*Compte lecteur*/
+/*33PUDB_NETWORK_CL disparition amendes+frais, modification infos personnelles*/
+/*############################################################################*/
 #personalDetails, prm-account-links, md-tab-item:nth-child(4),prm-fines-overview{
   display: none;
 }
@@ -82,18 +20,14 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
 md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item:not([disabled]){
   min-width: 8em;
 }
-
-
 /*33PUDB_NETWORK_CL_Adrese_compte_lecteur Empêche le chevauchement des lignes*/
+/*###########################################################################*/
 prm-personal-info md-input-container.md-input-has-value label:not(.md-no-float) {
-
-opacity: .8;
-transform: translate3d(0,15px,0) scale(0.85);
+  opacity: .8;
+  transform: translate3d(0,15px,0) scale(0.85);
 }
-/*END 33PUDB_NETWORK_CL_Adrese_compte_lecteur*/
-
-/*##############################################################*/
 /*33PUDB_NETWORK_AFA_Authentification autres institutions*/
+/*#######################################################*/
 prm-login.layout-row  {
     flex-direction: column;
 }
@@ -127,8 +61,78 @@ prm-login.layout-row  {
   background-color: white;
 }
 /*END 33PUDB_NETWORK_AFA_Authentification autres institution*/
+/*
+########  ########  #### ######## ########    ########  ####  ######  ########  ##          ###    ##    ## 
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+########  ########   ##  ######   ######      ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##     ## ##   ##    ##  ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##     ## ##    ##   ##  ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+########  ##     ## #### ######## ##          ########  ####  ######  ##        ######## ##     ##    ##
+*/
+/*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
+/*##################################################################################*/
+prm-facet h2[translate="nui.facets.title"]{
+  display: none;
+}
+/*33PUDB Citation trail
+#########################
+/*33PUDB_NETWORK_CL_effacement liens dans citation trails*/
+prm-times-cited{
+  display: none;
+}
+prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"], prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.sources"],prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.or"]{
+  display: none;
+}
+/*33PUDB_NETWORK_CL_TRIE Déplace le trie au dessus des facettes*/
+/*##############################################################*/
+@media screen and (min-width: 960px) {
+  prm-facet .primo-scrollbar {
+	overflow-x: visible !important;
+	}
+  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row  {
+    margin-left: 345%;
+    position: absolute;
+    margin-top: -27px;
+    z-index:1;
+  }
+  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row > div > h3 {
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+  prm-search-result-sort-by {
+    padding-bottom: 6px;
+    font-size: 14px;
+  }
+  prm-facet > div.primo-scrollbar.is-stuck > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row {
+    display:none;
+  }
+}
+/*END 33PUDB_NETWORK_CL_TRIE*/
 
-/*Sent To FIxe en bas de page */
+
+/*
+######## ##     ## ##       ##          ########  ####  ######  ########  ##          ###    ##    ## 
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##       ##     ## ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+######   ##     ## ##       ##          ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##       ##     ## ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+##        #######  ######## ########    ########  ####  ######  ##        ######## ##     ##    ## 
+*/
+
+/*33PUDB Suppression des TAGS*/
+/*---------------------------*/
+/*Menu*/
+[aria-label="Tags"],[aria-label="Etiquetas"],[aria-label="nui.mainmenu.label.tags"]{
+  display:none;
+}
+/*Sections*/
+#tags{
+  display:none;
+}
+/*33PUDB Sent To fixé en bas de page*/
+/*----------------------------------*/
 .full-view-section {
   margin-top: 1em;
 }
@@ -177,19 +181,6 @@ prm-full-view .send-actions-content-item {
 #action_list prm-action-list .send-actions-content-item div.flex {
   max-width: 500px;
 }
-/*.prm-alert-border, .bar.alert-bar, .classic-input .search-scope {
-  border-color: #e8e8e8;
-}
-.prm-alert-bg, .bar.alert-bar, .classic-input .search-scope {
-  background-color: #f8f8f8;
-}
-
-.bar.alert-bar {
-  height: 48px;
-  min-height: 48px;
-  margin-bottom: 6px;
-} */
-
 @media screen and (max-width: 959px) {
   #action_list prm-action-list {
       max-width: 100%;
@@ -221,4 +212,63 @@ prm-full-view .send-actions-content-item {
       min-width: 50px;
       padding: 0.5em;
   }
+}
+
+/*Changement de l'ordre des rubriques*/
+/*###################################*/
+.full-view-inner-container{
+  padding-bottom: 10em;
+  display: flex;
+  flex-direction: column;
+ }
+/*Menu de navigation*/
+[aria-label="Notice abrégée"], [aria-label="Top"], [aria-label="Arriba"] {
+  order: 0 !important; 
+  display:none;
+}
+[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
+  order: 0 !important; 
+  display:none;
+}
+[aria-label="En ligne"], [aria-label="View it"], [aria-label="Visualizarlo"] {
+  order: 1 !important;
+}
+[aria-label="En rayon"], [aria-label="Get it"], [aria-label="Obténgalo"] {
+  order: 2 !important; 
+}
+[aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
+  order: 3 !important; 
+}
+[aria-label="Liens"],[aria-label="links"],[aria-label="Enlaces"] {
+  order: 4 !important;
+   }
+[aria-label="Citations"] {
+  order: 6 !important; }
+[aria-label="Etagère virtuelle"],[aria-label="Virtual browse"],[aria-label="Navegación virtual"] {
+  order: 7 !important; }
+[aria-label="Tags"], [aria-label="Etiquetas"] {
+  order: 8 !important;
+ display: none;
+}
+/*Rubriques*/
+#getit_link1_0, #getit_link1 {
+  order: 1;
+   }
+#getit_link2_0, #getit_link2 {
+    order: 2;
+  }
+#details {
+  order: 3; 
+}
+#links {
+  order: 4;
+   }
+#citationTrails {
+  order: 5;
+
+}
+#virtualBrowse {
+  order: 6; }
+#tags {
+  order: 7;
 }
