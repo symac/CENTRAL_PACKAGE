@@ -188,6 +188,7 @@ prm-full-view .send-actions-content-item {
       left: 0;
       right: 0;
       margin: auto;
+      transform:none;
   }
   #action_list prm-action-list > md-nav-bar .md-button {
       line-height: 14px;
@@ -207,6 +208,7 @@ prm-full-view .send-actions-content-item {
       left: 0;
       right: 0;
       margin: auto;
+      transform:none;
   }
   #action_list prm-action-list > md-nav-bar .md-button {
       min-width: 50px;
@@ -239,7 +241,7 @@ prm-full-view .send-actions-content-item {
 [aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
   order: 3 !important; 
 }
-[aria-label="Liens"],[aria-label="links"],[aria-label="Enlaces"] {
+[aria-label="Liens"],[aria-label="Links"],[aria-label="Enlaces"] {
   order: 4 !important;
    }
 [aria-label="Citations"] {
