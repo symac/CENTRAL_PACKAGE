@@ -234,10 +234,10 @@ prm-full-view .send-actions-content-item {
 [aria-label="En rayon"], [aria-label="Get it"], [aria-label="Obténgalo"] {
   order: 1 !important; 
 }
-[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
+[aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
   order: 2 !important; 
 }
-[aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
+[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
   order: 3 !important; 
 }
 [aria-label="Liens"],[aria-label="Links"],[aria-label="Enlaces"] {
@@ -258,11 +258,11 @@ prm-full-view .send-actions-content-item {
 #getit_link2_0, #getit_link2 {
     order: 2;
   }
-#action_list{
-  order: 3;
-}
 #details {
-  order: 4; 
+  order: 3; 
+}
+#action_list{
+  order: 4;
 }
 #links {
   order: 5;
