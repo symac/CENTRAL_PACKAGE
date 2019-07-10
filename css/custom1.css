@@ -133,11 +133,9 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
 }
 /*33PUDB Sent To fixé en bas de page*/
 /*----------------------------------*/
-.full-view-section {
-  margin-top: 1em;
-}
 
-#action_list, #action_list .section-head {
+
+/* #action_list, #action_list .section-head {
   margin: 0;
 }
 
@@ -151,8 +149,7 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
   max-width: 68%;
   left: 50%;
   transform: translateX(-50%);
-  /* left: 50%; on positionne l'élément à la moitié de l'écran
-	margin-left: -100px; on applique une marge négative de la moitié de la largeur de l'élément */
+
   z-index: 98;
   background-color: gainsboro;
   box-shadow: 0 1px 0 0 rgba(58,58,58,.1),0 1px 5px 0 rgba(58,58,58,.2);
@@ -214,10 +211,13 @@ prm-full-view .send-actions-content-item {
       min-width: 50px;
       padding: 0.5em;
   }
-}
+} */
 
 /*Changement de l'ordre des rubriques*/
 /*###################################*/
+.full-view-section {
+  margin-top: 1em;
+}
 .full-view-inner-container{
   padding-bottom: 10em;
   display: flex;
@@ -228,14 +228,13 @@ prm-full-view .send-actions-content-item {
   order: 0 !important; 
   display:none;
 }
-[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
-  order: 0 !important; 
-  display:none;
-}
 [aria-label="En ligne"], [aria-label="View it"], [aria-label="Visualizarlo"] {
-  order: 1 !important;
+  order: 0 !important;
 }
 [aria-label="En rayon"], [aria-label="Get it"], [aria-label="Obténgalo"] {
+  order: 1 !important; 
+}
+[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
   order: 2 !important; 
 }
 [aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
@@ -259,18 +258,20 @@ prm-full-view .send-actions-content-item {
 #getit_link2_0, #getit_link2 {
     order: 2;
   }
+#action_list{
+  order: 3;
+}
 #details {
-  order: 3; 
+  order: 4; 
 }
 #links {
-  order: 4;
+  order: 5;
    }
 #citationTrails {
-  order: 5;
-
+  order: 6;
 }
 #virtualBrowse {
-  order: 6; }
+  order: 7; }
 #tags {
-  order: 7;
+  order: 8;
 }
