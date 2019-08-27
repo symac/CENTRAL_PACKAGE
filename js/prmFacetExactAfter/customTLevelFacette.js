@@ -1,13 +1,11 @@
 
 /*[33PUDB_NETWORK_AFA] - Customisation de la toplevel facette  */
 /*Suprime les entrées 'peer_reviewed','open_access'et'available'*/
-import tlevelFacet from './customTLevelFacette.html'
 class tLevelFacetteController {
   constructor(){
     console.log('----> 33PUDB tLevelFacetteController');
-    var facetType = this.parentCtrl.facetGroup.name; 
     /*Filtre sur la top level facette*/
-    if (facetType == "tlevel"){
+    if (this.parentCtrl.facetGroup.name == "tlevel"){
         /*Récupère les valeurs de la tlevel facette*/
         var tlevelFacetsValues = this.parentCtrl.facetGroup.values;
         // console.log(tlevelFacetsValues);
@@ -33,6 +31,5 @@ class tLevelFacetteController {
 
 export let tLevelFacetteConfig = {
   bindings: {parentCtrl:'<'},
-  controller: tLevelFacetteController,
-  template: tlevelFacet
+  controller: tLevelFacetteController
 }
