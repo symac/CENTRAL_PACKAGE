@@ -16,3 +16,7 @@ if (app){
     app.component('prmLoanAfter',itemInLoanConfig);
     // app.component('rebubComponent', bouttonAfficheDispoElecConfig);
 } 
+
+// angular.module('primo-explore.config').run(['$templateCache', function($templateCache) {
+//     $templateCache.put('components/account/loans/loan.html','<h1>Yolo !!!</h1>');
+// }]);
