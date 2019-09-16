@@ -46,19 +46,25 @@ class customBriefDisplayController {
         firstLinetext.unshift(hFirstLine);
         }
         // console.log(this.parentCtrl.item.pnx.control.recordid[0]);
-        // console.log(this.parentCtrl.item.context);
-        
+        console.log(this.parentCtrl.item.context);
+        console.log(this.parentCtrl.item.pnx.control.recordid[0]);
         /****************************************************************************** */
         /* Empêche l'affichage des deux champs lds01 dans le cas d'une notice fusionnée */
         /****************************************************************************** */
         if (this.parentCtrl.item.context == "L" && this.parentCtrl.item.pnx.control.recordid[0].startsWith('dedup')) {
+            console.log(this.parentCtrl.otherLines);
             var otherLines = this.parentCtrl.otherLines;
             for (var i = 0; i < otherLines.length; i++) {
-                // console.log(otherLines[i].values[0].key);
+                console.log(otherLines[i].values[0].key);
                 if (otherLines[i].values[0].key == 'lds01'){
                     var bibAddr = otherLines[i].values[0].text[0];
                     // console.log(bibAddr);
                     otherLines[i].values[0].text[0] = bibAddr.replace(/^(.*?)<br\/>.*/, "$1");
+                }
+                if (otherLines[i].values[0].key == 'lds02'){
+                    var bibAddr = otherLines[i].values[0].text[0];
+                    // console.log(bibAddr);
+                    otherLines[i].values[0].text[0] = bibAddr.replace(/^(.*?);.*/, "$1");
                 }
                 
             }
