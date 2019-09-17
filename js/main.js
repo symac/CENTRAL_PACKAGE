@@ -3,7 +3,7 @@ import {authentificationAutresInstConfig} from './prmLoginAfter/authentification
 import {customBriefDisplayConfig} from './prmBriefResultAfter/customBriefDisplay'
 import {affDispoConfig} from './prmSearchResultAvailabilityLineAfter/affDispo'
 import {dispoElecAutresInstConfig} from './prmFullViewServiceContainerAfter/dispoElecAutresInst'
-// import {bouttonAfficheDispoElecConfig} from './prmFullViewServiceContainerAfter/bouttonAfficheDispoElec'
+import {itemInLoanConfig} from './prmLoanAfter/itemInLoan'
 
 let app = angular.module('centralCustom',[]);
 if (app){
@@ -12,5 +12,9 @@ if (app){
     app.component('prmBriefResultAfter', customBriefDisplayConfig);
     app.component('prmSearchResultAvailabilityLineAfter', affDispoConfig);
     app.component('prmFullViewServiceContainerAfter', dispoElecAutresInstConfig);
-    // app.component('rebubComponent', bouttonAfficheDispoElecConfig);
+    app.component('prmLoanAfter',itemInLoanConfig);
 } 
+
+// angular.module('primo-explore.config').run(['$templateCache', function($templateCache) {
+//     $templateCache.put('components/account/loans/loan.html','<h1>Yolo !!!</h1>');
+// }]);

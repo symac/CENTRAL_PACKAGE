@@ -14,7 +14,7 @@ class authentificationAutresInstController {
         if (this.parentCtrl.$location.$$path == "/login") {
             this.absUrl = 'https://' + this.hostAuth + '/primo-explore/account?vid=33PUDB_UBM_VU1&section=overview';
             //URL pour le travail en localhost
-            //this.absUrl = 'https://babordplus.hosted.exlibrisgroup.com/primo-explore/account?vid=33PUDB_UBM_VU1&section=overview';
+            // this.absUrl = 'https://babordplus.hosted.exlibrisgroup.com/primo-explore/account?vid=33PUDB_UBM_VU1&section=overview';
         }
         else {
             this.absUrl = this.parentCtrl.$location.$$absUrl;
