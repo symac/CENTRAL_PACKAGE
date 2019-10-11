@@ -12,6 +12,8 @@ Lorsqu'une notice est fusionnée Primo conserve tous les champs locaux. Ainsi le
 Suprime les entrées 'peer_reviewed','open_access'et'available'
 ## affDispo
 Remonte la deuxième mention de disponibilté qui est parfois non affichée quand pour un même document notices de la version imprimée et électronique ont été fusionnées. Case # 00641786 chez Exlib
+## itemInLOan
+[Empêche la prolongation en fonction du nombre de jours écoulés de puis la date d'emprunt](prmLoanAfter/itemInLoan.js)
  
 ```
 |-- prmBriefResultAfter:
