@@ -3,6 +3,7 @@
 
 >Affichage de la disponibilité des documents électroniques dans les autres institutions du réseau 
 
+
 ## Principe
 
 On récupère la liste de institutions proposant un accès au document dans la notice pnx.
@@ -16,6 +17,7 @@ Le service est maintenant disponible pour les notices fusionnées.
 
 ## Todo
 - [ ] Affichage d'un spinner au chargement de l'iframe
+- [ ] Améliorer l'interface
 
 
 
