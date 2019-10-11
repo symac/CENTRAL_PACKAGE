@@ -1,6 +1,6 @@
 # Liste des modules développées
 ## dispoElecAutresInst
-Affichage de la disponibilité des documents électroniques dans les autres institutions du réseau.
+[Affichage de la disponibilité des documents électroniques dans les autres institutions du réseau.](prmFullViewServiceContainerAfter/README.md)
 ## authentificationAutresInst
 Redirige le lecteur vers la vue de son institution à l'issue de l'authentification.
 ## customBriefDisplay
@@ -29,4 +29,6 @@ Remonte la deuxième mention de disponibilté qui est parfois non affichée quan
 |-- prmSearchResultAvailabilityLineAfter:
 |   |-- affDispo.html
 |   |-- affDispo.js
+|-- prmLoanAfter:
+|   |-- itemInLoan.js
 ```
