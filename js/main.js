@@ -4,7 +4,8 @@ import {customBriefDisplayConfig} from './prmBriefResultAfter/customBriefDisplay
 import {affDispoConfig} from './prmSearchResultAvailabilityLineAfter/affDispo'
 import {dispoElecAutresInstConfig} from './prmFullViewServiceContainerAfter/dispoElecAutresInst'
 import {itemInLoanConfig} from './prmLoanAfter/itemInLoan'
-import {forceAuthConfig} from './prmAuthenticationAfterController/forceAuth'
+// import {authThumbnailConfig} from './prmTopbarAfter/authTumbnail'
+import {forceAuthConfig} from './prmAuthenticationAfter/forceAuth'
 
 let app = angular.module('centralCustom',[]);
 if (app){
@@ -14,7 +15,8 @@ if (app){
     app.component('prmSearchResultAvailabilityLineAfter', affDispoConfig);
     app.component('prmFullViewServiceContainerAfter', dispoElecAutresInstConfig);
     app.component('prmLoanAfter',itemInLoanConfig);
-    // app.component('prmUserAreaExpandableAfter',forceAuthConfig);
+    // app.component('prmTopbarAfter',authThumbnailConfig);
+    app.component('prmAuthenticationAfter',forceAuthConfig);
 } 
 
 // angular.module('primo-explore.config').run(['$templateCache', function($templateCache) {

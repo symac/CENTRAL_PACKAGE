@@ -6,8 +6,13 @@ class forceAuthController {
       // console.log(this.parentCtrl.loginService.handleLogin());
       var forceLogin = getQueryParam(this.parentCtrl.loginService.$location.$$absUrl, "forcelogin")
       if (forceLogin == 'true'){
-        console.log("prout");
-        location.href = "/primo-explore/favorites?vid=33PUDB_UB_VU2&lang=en_US&section=items";
+        console.log("redirection");
+        let target_url = this.parentCtrl.loginService.$location.$$absUrl.replace('&forcelogin=true','')
+        target_url = encodeURIComponent(target_url);
+        let institution = this.parentCtrl.authenticationService.userSessionManagerService.inst;
+        let authenticationProfile = institution + "_SAML_" + institution.replace('33PUDB_','')
+        let auth_url = "/primo_library/libweb/primoExploreLogin?institution="+institution+"&lang=fr_FR&target-url="+target_url+"&authenticationProfile="+authenticationProfile;
+        location.href = auth_url;
       }
       
       // location.href = "http://example.com";

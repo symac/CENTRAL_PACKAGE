@@ -27,7 +27,7 @@ class customBriefDisplayController {
             };
             var hSecondLine = {
                 values : [hSecondValue],
-                delimiter : " ;"
+                delimiter : " ; "
             };
             firstLinetext.unshift(hSecondLine); 
         }
@@ -40,7 +40,7 @@ class customBriefDisplayController {
         };
         var hFirstLine = {
             values : [hFirstValue],
-            delimiter : " ;"
+            delimiter : " ; "
         };
         // console.log(firstLinetext);
         firstLinetext.unshift(hFirstLine);

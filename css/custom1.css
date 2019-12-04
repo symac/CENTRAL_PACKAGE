@@ -275,3 +275,9 @@ prm-full-view .send-actions-content-item {
 #tags {
   order: 8;
 }
+
+/*33PUDB_AFA Empêche l'affichage du mesage "Aucun document à afficher pour cet emplacement. Veuillez vous identifier ci-dessus pour voir les options de demande disponibles."
+Quand aps de résultats Alma*/
+.padding-left-medium[ng-if="$ctrl.currLoc.locationNoItems"] {
+  display: none;
+}
