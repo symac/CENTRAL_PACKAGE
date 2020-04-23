@@ -3,9 +3,7 @@ import logosInstsTemplate from './logosInsts.html'
 
 class logosInstsController {
     constructor(){
-      var messages = {  'fr_FR' : "Cliquez sur le logo d’un établissement pour accéder à son catalogue",
-                        'en_US' : "Anglais",
-                        'es_ES' : "Espagnol"};
+
       var url = new URL(document.location.href);
       var lang = url.searchParams.get('lang');
       var pathname = url.pathname;
@@ -26,26 +24,13 @@ class logosInstsController {
         if (institution != "33PUDB_NETWORK") {
           var regex = new RegExp(myInstitution, "g");
           this.institutionsList.push(institution);
-          if (institution != myInstitution) {
-            if (url.pathname == '/primo-explore/search' || url.pathname == '/primo-explore/fulldisplay'){
-              this.institutionsUrl[institution] = url.href.replace(regex,institution);
-            }
-            else{
-              this.institutionsUrl[institution] = url.hostname + 'search?vid=' + institution + '_VU1&lang=' + lang;
-            }
-          }
-          else{
-            this.institutionsUrl[institution] = url.href;
-          }
+          this.institutionsUrl[institution] = 'https://'+ url.hostname + 'search?vid=' + institution + '_VU1';
+        
         }
        
       });
-      if (openUrl){
-        this.message = "Le document n'est pas disponible dans votre institution ? Il se trouve peut être dans une institution du réseau."
-      }
-      else{
-        this.message = "Réseau des bibliothèques universitaires bordelaises";    
-      }
+      
+      this.message = "Réseau des bibliothèques universitaires bordelaises";    
       
       this.institutionsList.sort();
 

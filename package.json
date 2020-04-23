@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/louxfaure/CENTRAL_PACKAGE/issues"
   },
-  "homepage": "https://github.com/louxfaure/CENTRAL_PACKAGE#readme"
+  "homepage": "https://github.com/louxfaure/CENTRAL_PACKAGE#readme",
+  "devDependencies": {}
 }
