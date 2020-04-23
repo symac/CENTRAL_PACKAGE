@@ -1,14 +1,14 @@
 class itemInLoanController { 
     constructor($element){
         console.log("--->itemInLoanController");
-        console.log(this);
+        // console.log(this);
         var loanDate = this.parentCtrl.item.loandate;
         var dueDate = this.parentCtrl.item.duedate;
         var today = new Date();
         var loanDuration = calcDiffDate(formatDate(dueDate), formatDate(loanDate))
         var daysSinceLoanDate = calcDiffDate(today, formatDate(loanDate));
-        console.log("Exemplaire emprunté le "+loanDate +". A rendre le "+dueDate+".");
-        console.log("Durée du prêt :"+loanDuration);
+        // console.log("Exemplaire emprunté le "+loanDate +". A rendre le "+dueDate+".");
+        // console.log("Durée du prêt :"+loanDuration);
         // Si la durée du prêt est supérieure à 7 jours
         if (loanDuration > 7 && this.parentCtrl.item.renew === "Y"){
             if( daysSinceLoanDate < 7) {
@@ -27,18 +27,18 @@ class itemInLoanController {
             var regex = /(\d{2})\/(\d{2})\/(\d{4})/;
             var [,day, month, year] = regex.exec(date)
             var formatedDate = new Date(year, month - 1 , day);
-            console.log(formatedDate);
+            // console.log(formatedDate);
             return formatedDate;
         }
         function calcDiffDate(firstDate, secondDate){
             var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds    
             var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-            console.log(diffDays);
+            // console.log(diffDays);
             return diffDays
         }
         function addDays(date,days){
             var result = new Date();
-            console.log(date+" + "+days);
+            // console.log(date+" + "+days);
             result.setDate(date.getDate() + (7-days));
             return result.toLocaleDateString();
         }

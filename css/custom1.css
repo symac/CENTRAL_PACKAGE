@@ -91,10 +91,10 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
 	overflow-x: visible !important;
 	}
   #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row  {
-    margin-left: 345%;
+    margin-left: 315%;
     position: absolute;
-    margin-top: -27px;
-    z-index:1;
+    /* margin-top: -27px; */
+    z-index:12;
   }
   #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row > div > h3 {
     font-size: 0.85em;
@@ -109,6 +109,17 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
   }
 }
 /*END 33PUDB_NETWORK_CL_TRIE*/
+
+/*+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
+ |c|O|L|L|E|C|T|I|O|N| |D|I|S|C|O|V|E|R|Y|
+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+*/
+div.infoEx {
+  font-size: smaller;
+}
+
+.is-gallery-view div.infoEx {
+  display: none;
+}
 
 
 /*
@@ -281,3 +292,69 @@ Quand aps de résultats Alma*/
 .padding-left-medium[ng-if="$ctrl.currLoc.locationNoItems"] {
   display: none;
 }
+
+/* #Footer */
+prm-explore-footer-after .footer {
+  width:100%;
+  margin:0 auto;
+  background:#eef0eb;
+  padding-top:10px;
+  padding-bottom:35px;
+  z-index: 10;
+  position: relative;
+}
+prm-explore-footer-after .footer .footer-inner {
+  padding:0 25px;
+  text-align:center;
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo {
+  /* display:inline-block; */
+  margin-right: 20px;
+  margin-top: 10px;
+
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo img {
+  max-width: 200px;
+  max-height: 200px;
+
+}
+prm-explore-footer-after .footer .footer-inner .footer-instruction {
+  font-family: 'Cronos Light';
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+ /* The alert message box */
+ .alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+} 

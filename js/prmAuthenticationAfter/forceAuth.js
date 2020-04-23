@@ -1,12 +1,12 @@
 class forceAuthController {
     constructor(){
-      console.log('---->33PUDB forceauth');
-      console.log(this);
+      // console.log('---->33PUDB forceauth');
+      // console.log(this);
       // console.log(this.parentCtrl.authenticationMethods);
       // console.log(this.parentCtrl.loginService.handleLogin());
       var forceLogin = getQueryParam(this.parentCtrl.loginService.$location.$$absUrl, "forcelogin")
       if (forceLogin == 'true'){
-        console.log("redirection");
+        // console.log("redirection");
         let target_url = this.parentCtrl.loginService.$location.$$absUrl.replace('&forcelogin=true','')
         target_url = encodeURIComponent(target_url);
         let institution = this.parentCtrl.authenticationService.userSessionManagerService.inst;

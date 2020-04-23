@@ -12,7 +12,7 @@ class dispoElecAutresInstController {
       this.serviceName = this.parentCtrl.service.scrollId;
       /*On ne travaille qu'au niveau du view it*/
       if (this.serviceName == "getit_link1_0" && this.parentCtrl.service.linkElement.category == "Alma-E") {
-        console.log('---->dispoElecAutresInstController');
+        // console.log('---->dispoElecAutresInstController');
         //Vue actuelle
         this.REBUB_vue = this.parentCtrl.configurationUtil.vid;
         //Je récupère le code de l'institution
@@ -20,7 +20,7 @@ class dispoElecAutresInstController {
         this.institutionsLIst = [];
         this.dispos = this.parentCtrl.item.pnx.delivery.delcategory;
         this.isShowContent = {};
-        console.log(this);
+        // console.log(this);
         //Je construit une liste avec chaque institution proposant l'accès électronique au documment (pnx/delivery/delcategory)
         for (var i = 0; i < this.dispos.length; i++) {
           var dispoElement = this.dispos[i].match(/(\$\$V|^)(.*?)\$\$I(.*?)(\$|$)/);
@@ -77,14 +77,14 @@ class dispoElecAutresInstController {
     /*Masquage/Affichage  de l'iframe*/
     /******************************** */
     for (var i in this.isShowContent) {
-      console.log(i);
+      // console.log(i);
       if(i != institution){
         this.isShowContent[i] = false;  
       }
     }
     this.isShowContent[institution] = !this.isShowContent[institution];
     this.templateURL = 'custom/CENTRAL_PACKAGE/js/prmFullViewServiceContainerAfter/bouttonAfficheDispoElec.html';
-    console.log(this.isShowContent);
+    // console.log(this.isShowContent);
 
   }
   trustAsUrl(url){
