@@ -113,14 +113,13 @@ prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"]
 /*+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
  |c|O|L|L|E|C|T|I|O|N| |D|I|S|C|O|V|E|R|Y|
  +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+*/
-div.infoEx {
+ div.infoEx {
   font-size: smaller;
 }
 
 .is-gallery-view div.infoEx {
   display: none;
 }
-
 
 /*
 ######## ##     ## ##       ##          ########  ####  ######  ########  ##          ###    ##    ## 
@@ -340,7 +339,7 @@ show up properly and the following code fixes it */
 
 md-backdrop, .md-dialog-container {
   position: fixed; }
-
+ 
 md-toast {
   z-index: 78; }
   @media screen and (min-width: 1920px) {
@@ -349,3 +348,4 @@ md-toast {
   }
 
   }
+

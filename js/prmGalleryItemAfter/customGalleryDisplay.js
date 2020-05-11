@@ -6,8 +6,8 @@ class customGalleryDisplayController {
         // this.$document = $document;
          console.log('---->33PUDB customGalleryDisplayController');
          console.log(this);
-         var firstLine = this.parentCtrl.item.pnx.display.lds02;
-         var secondLine = this.parentCtrl.item.pnx.display.lds01;
+         var firstLine = this.parentCtrl.item.pnx.display.lds02 === undefined ? "" : this.parentCtrl.item.pnx.display.lds02;
+         var secondLine = this.parentCtrl.item.pnx.display.lds01 === undefined ? "" : this.parentCtrl.item.pnx.display.lds01;
          console.log(this.$element[0].parentElement);
          var conteneur = this.$element[0].parentElement.querySelector('div.item-info');
          var infoExElement = document.createElement('div');

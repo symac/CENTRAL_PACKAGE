@@ -8,6 +8,7 @@ class PrmTopbarAfterController {
   
     $onInit() {
       // message displayed.
+      var url = new URL(document.location.href);
       this.messageService.display()
         .catch((e) => {
           if (e) console.log(e);
