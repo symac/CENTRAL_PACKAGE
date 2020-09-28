@@ -333,19 +333,31 @@ prm-explore-footer-after .footer .footer-inner .footer-instruction {
   margin-top: 10px;
 }
 
+prm-user-area-expandable-after{
+  display: flex;
+}
+
+prm-user-area-expandable-after #panier-covid{
+  margin: auto;
+}
+
+/*Sélections*/
+prm-collection-gallery-header h1{
+  text-transform: uppercase;
+}
+
 /* Messages d'alertes */
 /* Bug fixing: after adding the announcement bar the overlays (like when you click on the more (...) button) don't
 show up properly and the following code fixes it */
 
-md-backdrop, .md-dialog-container {
-  position: fixed; }
+/* md-backdrop, .md-dialog-container {
+  position: fixed; } */
  
-md-toast {
-  z-index: 78; }
+/* md-toast {
+  z-index: 79; 
   @media screen and (min-width: 1920px) {
     md-toast.page-notification .md-toast-content {
       max-width: 999px;
   }
-
-  }
-
+}
+  } */

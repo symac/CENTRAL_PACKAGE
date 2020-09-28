@@ -1,19 +1,13 @@
 class PrmTopbarAfterController {
-    constructor(messageService, $scope, $element, $translate) {
-      this.messageService = messageService;
+    constructor($scope, $element, $translate) {
       this.$scope = $scope;
       this.$element = $element;
       this.$translate = $translate;
+     console.log(this.parentCtrl.storageUtil.localStorage);
     }
+
+    
   
-    $onInit() {
-      // message displayed.
-      var url = new URL(document.location.href);
-      this.messageService.display()
-        .catch((e) => {
-          if (e) console.log(e);
-        });
-    };
   }
   
   PrmTopbarAfterController.$inject = ['messageService', '$scope', '$element', '$translate'];
@@ -22,8 +16,10 @@ class PrmTopbarAfterController {
     name: 'prmTopbarAfter',
     config: {
       controller: PrmTopbarAfterController,
-      require: {
-        primoExploreCtrl: '^primoExplore'
-      }
-    }
+      // require: {
+      //   primoExploreCtrl: '^primoExplore'
+      // }
+    },
+    bindings: {parentCtrl:'<'},
+
   };

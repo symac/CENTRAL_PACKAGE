@@ -24,7 +24,7 @@ class logosInstsController {
         if (institution != "33PUDB_NETWORK") {
           var regex = new RegExp(myInstitution, "g");
           this.institutionsList.push(institution);
-          this.institutionsUrl[institution] = 'https://'+ url.hostname + 'search?vid=' + institution + '_VU1';
+          this.institutionsUrl[institution] = 'https://'+ url.hostname + '/primo-explore/search?vid=' + institution + '_VU1';
         
         }
        

@@ -1,52 +1,73 @@
-class itemInLoanController { 
-    constructor($element){
+class itemInLoanController {
+    constructor($element, $translate) {
+        this.$translate = $translate;
         console.log("--->itemInLoanController");
-        // console.log(this);
+        console.log(this);
         var loanDate = this.parentCtrl.item.loandate;
         var dueDate = this.parentCtrl.item.duedate;
         var today = new Date();
-        var loanDuration = calcDiffDate(formatDate(dueDate), formatDate(loanDate))
+        var loanDuration = calcDiffDate(formatDate(dueDate), formatDate(loanDate));
         var daysSinceLoanDate = calcDiffDate(today, formatDate(loanDate));
-        // console.log("Exemplaire emprunté le "+loanDate +". A rendre le "+dueDate+".");
-        // console.log("Durée du prêt :"+loanDuration);
-        // Si la durée du prêt est supérieure à 7 jours
-        if (loanDuration > 7 && this.parentCtrl.item.renew === "Y"){
-            if( daysSinceLoanDate < 7) {
+        var institution = this.parentCtrl.item.ilsinstitutioncode;
+        console.log(institution);
+        this.$translate('nui.loans.' + institution + '_duree_prolongation').then((duree_prolongation) => {
+            console.log(duree_prolongation);
+            // Si la durée du prêt est supérieure à la durée de la prolongation et si le nombre de jour écoulé depuis la date d'emprunt est inférieure à la durée de la prolongation
+            // Alors on bloque le prêt jusqu'à ce que le nombre de jours d'emprunt écoulés soit égal au nombre de jours de prolongation
+            // duree_prolongation = 14
+            if (loanDuration > duree_prolongation && this.parentCtrl.item.renew === "Y" && daysSinceLoanDate < duree_prolongation) {
                 this.parentCtrl.item.renew = "N";
-                $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(today,daysSinceLoanDate),this.parentCtrl.loansService.requestParams.lang);
-            } 
-        }
+                $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(loanDate), duree_prolongation), this.parentCtrl.loansService.requestParams.lang);
+            }
+            // Si la durée du prêt est inférieure à la durée de la prolongation alors on permet la prolongation 2 jours avant la date d'échéance du prêt.
+            else if (loanDuration <= duree_prolongation && this.parentCtrl.item.renew === "Y") {
+                this.parentCtrl.item.renew = "N";
+                $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(dueDate), -2), this.parentCtrl.loansService.requestParams.lang);
+            }
+
+        });
+         console.log("Exemplaire emprunté le " + loanDate + ". A rendre le " + dueDate + ".");
+         console.log("Exemplaire emprunté le " + formatDate(loanDate) + ". A rendre le " + formatDate(dueDate) + ".");
+         console.log("Durée du prêt :" + loanDuration);
+        // Si la durée du prêt est supérieure à 7 jours
+
         // On vide l'affichage détaillé et on ne conserve que la dated'emprunt 
-        this.parentCtrl.item._fullDisplayValues = [ {key : "loan_date", value : this.parentCtrl.item.loandate},
-                                                    {key : "max_renew_date", value : this.parentCtrl.item.maxrenewdate}];
+        this.parentCtrl.item._fullDisplayValues = [{ key: "loan_date", value: this.parentCtrl.item.loandate },
+        { key: "max_renew_date", value: this.parentCtrl.item.maxrenewdate }];
 
 
-    
-        
-        function formatDate(date){
+
+
+        function formatDate(date) {
             var regex = /(\d{2})\/(\d{2})\/(\d{4})/;
-            var [,day, month, year] = regex.exec(date)
-            var formatedDate = new Date(year, month - 1 , day);
-            // console.log(formatedDate);
+            var [, day, month, year] = regex.exec(date)
+            var formatedDate = new Date(year, month -1, day);
+            console.log(formatedDate);
             return formatedDate;
         }
-        function calcDiffDate(firstDate, secondDate){
-            var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds    
-            var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+        function calcDiffDate(firstDate, secondDate) {
+            var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds    
+            var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
             // console.log(diffDays);
             return diffDays
         }
-        function addDays(date,days){
-            var result = new Date();
-            // console.log(date+" + "+days);
-            result.setDate(date.getDate() + (7-days));
+        function addDays(date, days) {
+            var result = new Date(date.getFullYear(),
+                date.getMonth(),
+                date.getDate() + days,
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+            );
+            // console.log("Result : " + result.toLocaleDateString());
             return result.toLocaleDateString();
         }
-        function newButtonMsg(renewdateok,lang = 'fr_FR'){
+        function newButtonMsg(renewdateok, lang = 'fr_FR') {
             var msg = {
-                "fr_FR" : "Prolongation impossible avant le ",
-                "en_US" : "Not renewable before ",
-                "es_ES" : "No renovable hasta "
+                "fr_FR": "Prolongation impossible avant le ",
+                "en_US": "Not renewable before ",
+                "es_ES": "No renovable hasta "
             };
             var fullMsg = msg[lang] + renewdateok;
             var html = '<div class="not-renewable weak-text layout-align-start-center" aria-label="' + fullMsg;
@@ -57,7 +78,7 @@ class itemInLoanController {
     }
 
 }
-itemInLoanController.$inject = ['$element'];
+itemInLoanController.$inject = ['$element', '$translate'];
 export let itemInLoanConfig = {
     bindings: { parentCtrl: '<' },
     controller: itemInLoanController

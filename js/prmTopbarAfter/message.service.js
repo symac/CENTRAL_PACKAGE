@@ -17,6 +17,8 @@ export class MessageService {
     });
     console.log("--> MESSAGE !!!");
     console.log(this);
+    var url = new URL(document.location.href);
+    console.log(url);
   };
 
   // The announcement has been dismissed.
@@ -35,6 +37,7 @@ export class MessageService {
    */
   display(hideCallback) {
     let ctrl = this;
+    console.log(ctrl);
 
     return new Promise((resolve, reject) => {
 
@@ -83,6 +86,7 @@ export class MessageService {
             }
           },
           controllerAs: '$ctrl',
+          // template:'<h1>TRUC</h1>'
           template: `
   <md-toast class="page-notification" style="top: 0px; position: sticky !important;">
       <div class="md-toast-content" style="box-shadow:none; width: 100%;">
