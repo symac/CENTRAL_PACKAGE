@@ -4,8 +4,9 @@ class panierController {
       this.element = $element;
 
       console.log("Panier");
-      
-    
+      console.log(this);
+      let view = this.parentCtrl.view;
+      this.institution = view.replace(/^33PUDB_(.*?)_.*/, '$1');
       this.uSMS = this.parentCtrl.userSessionManagerService;
       this.panierUser = "";
       console.log(this.uSMS.isGuest());
@@ -15,7 +16,7 @@ class panierController {
         this.panierUser = jwtData.user;
 
       }
-      this.panierUrl = "http://127.0.0.1:8000/panier/" +  this.panierUser
+      this.panierUrl = "https://scoop.u-bordeaux.fr/panier/" +  this.panierUser +"/" + this.institution
       // this.nb_resa =  0;
       // this.$http.get("/primo_library/libweb/webservices/rest/v1/myaccount/requests")
       //     .then(function mySuccess(response) {
@@ -61,7 +62,7 @@ class panierController {
       bindings: {parentCtrl:'<'},
       controller: panierController,
       template: `
-        <div ng-if="$ctrl.uSMS.isGuest() == false" id="panier-covid" class="layout-align-center layout-row">
+        <div ng-if="$ctrl.uSMS.isGuest() == false && $ctrl.institution == 'UB'" id="panier-covid" class="layout-align-center layout-row">
           <a class="md-icon-button button-over-dark md-button md-primoExplore-theme md-ink-ripple"
                     aria-label="Votre Panier" ng-click="$ctrl.openHelpMenu($event)"
                     href="{{$ctrl.panierUrl}}" target="_blank" title="accèder à vos documents réservés pour finaliser la commande">

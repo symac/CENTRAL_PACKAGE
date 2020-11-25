@@ -10,26 +10,28 @@ class itemInLoanController {
         var daysSinceLoanDate = calcDiffDate(today, formatDate(loanDate));
         var institution = this.parentCtrl.item.ilsinstitutioncode;
         console.log(institution);
-        this.$translate('nui.loans.' + institution + '_duree_prolongation').then((duree_prolongation) => {
-            console.log(duree_prolongation);
-            // Si la durée du prêt est supérieure à la durée de la prolongation et si le nombre de jour écoulé depuis la date d'emprunt est inférieure à la durée de la prolongation
-            // Alors on bloque le prêt jusqu'à ce que le nombre de jours d'emprunt écoulés soit égal au nombre de jours de prolongation
-            // duree_prolongation = 14
-            if (loanDuration > duree_prolongation && this.parentCtrl.item.renew === "Y" && daysSinceLoanDate < duree_prolongation) {
-                this.parentCtrl.item.renew = "N";
-                $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(loanDate), duree_prolongation), this.parentCtrl.loansService.requestParams.lang);
-            }
-            // Si la durée du prêt est inférieure à la durée de la prolongation alors on permet la prolongation 2 jours avant la date d'échéance du prêt.
-            else if (loanDuration <= duree_prolongation && this.parentCtrl.item.renew === "Y") {
-                this.parentCtrl.item.renew = "N";
-                $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(dueDate), -2), this.parentCtrl.loansService.requestParams.lang);
-            }
+        if (institution != '33PUDB_UB'){
+            this.$translate('nui.loans.' + institution + '_duree_prolongation').then((duree_prolongation) => {
+                console.log("Durée de prolongation : " + duree_prolongation);
+                // Si la durée du prêt est supérieure à la durée de la prolongation et si le nombre de jour écoulé depuis la date d'emprunt est inférieure à la durée de la prolongation
+                // Alors on bloque le prêt jusqu'à ce que le nombre de jours d'emprunt écoulés soit égal au nombre de jours de prolongation
+                // duree_prolongation = 14
+                if (loanDuration > duree_prolongation && this.parentCtrl.item.renew === "Y" && daysSinceLoanDate < duree_prolongation) {
+                    this.parentCtrl.item.renew = "N";
+                    $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(loanDate), duree_prolongation), this.parentCtrl.loansService.requestParams.lang);
+                }
+                // Si la durée du prêt est inférieure à la durée de la prolongation alors on permet la prolongation 2 jours avant la date d'échéance du prêt.
+                else if (loanDuration <= duree_prolongation && this.parentCtrl.item.renew === "Y") {
+                    this.parentCtrl.item.renew = "N";
+                    $element.parent().children()[0].children[4].innerHTML = newButtonMsg(addDays(formatDate(dueDate), -2), this.parentCtrl.loansService.requestParams.lang);
+                }
 
-        });
-         console.log("Exemplaire emprunté le " + loanDate + ". A rendre le " + dueDate + ".");
-         console.log("Exemplaire emprunté le " + formatDate(loanDate) + ". A rendre le " + formatDate(dueDate) + ".");
-         console.log("Durée du prêt :" + loanDuration);
-        // Si la durée du prêt est supérieure à 7 jours
+            });
+            console.log("Exemplaire emprunté le " + loanDate + ". A rendre le " + dueDate + ".");
+            console.log("Exemplaire emprunté le " + formatDate(loanDate) + ". A rendre le " + formatDate(dueDate) + ".");
+            console.log("Durée du prêt :" + loanDuration);
+            // Si la durée du prêt est supérieure à 7 jours
+        }
 
         // On vide l'affichage détaillé et on ne conserve que la dated'emprunt 
         this.parentCtrl.item._fullDisplayValues = [{ key: "loan_date", value: this.parentCtrl.item.loandate },
