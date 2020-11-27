@@ -11,6 +11,7 @@ import {forceAuthConfig} from './prmAuthenticationAfter/forceAuth';
 import {logosInstsConfig} from './prmExploreFooterAfter/logosInsts';
 // import {alertMessageConfig} from './prmBackToLibrarySearchButtonAfter/alertMessage';
 import {panierConfig} from './prmUserAreaExpandableAfter/panier';
+import {panierCompteLecteurConfig} from './prmUserAreaExpandableAfter/panier';
 // import { MessageService } from './prmTopbarAfter/message.service';
 // import { PrmTopbarAfterConfig } from './prmTopbarAfter/prmTopbarAfter.component';
 import {changeLinkToCollectionDiscoveryConfig} from './prmCollectionNavigationBreadcrumbsAfter/changeLinkToCollectionDiscovery';
@@ -32,6 +33,7 @@ if (app){
     // app.service('messageService', MessageService);
     // app.component(PrmTopbarAfterConfig.name, PrmTopbarAfterConfig.config);
     app.component('prmUserAreaExpandableAfter',panierConfig);
+    app.component('prmRequestsAfter',panierCompteLecteurConfig);
     app.component('prmCollectionNavigationBreadcrumbsItemAfter',changeLinkToCollectionDiscoveryConfig);
     // app.component('prmCollectionGalleryHeaderAfter',modifyCollectionTopTitleConfig)
 } 
