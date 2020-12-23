@@ -38,12 +38,14 @@ Case # 00641786 chez Exlib
 ## dispoElecAutresInst : affichage de la disponibilité des documents électroniques dans les autres institutions du réseau
 
 Problématique consortiale. 
+
 [:link: prmFullViewServiceContainerAfter/README.md](prmFullViewServiceContainerAfter/README.md)
 
 ## itemInLOan : Personnalisation de la liste des documents empruntés dans lec compte lecteur
 
 ### Empêche la réservation si l'emprunt date d'il y a moins de 7 jours (durée maximale de prolongation dans le réseau)
 Si le document est prolongeable et que le prêt est un prêt de plus de 7 jours (variable à adapter selon les besoins), le script regarde si le prêt à eu lieu il y a plus de  jours. Si ce n'est pas le cas, il indique quand le document pourra être prolongé.
+
 ![Liste des prêts : compte lecteur](prmLoanAfter/readme_img1.png)
 
 ## Supprime des informations inutiles dans la liste des exemplaires empruntés
@@ -71,7 +73,8 @@ Ajoute un bouton panier dans le menu de l'utilisateur lorsque celui-ci est authe
 
 ### panierCompteLecteur
 Ajoute un  lien vers l'application de prise de rdv dans l'onglet réservation du compte lecteur
-[:video: Lien vers démo loom](https://www.loom.com/share/9a466ce8887846d4aa1b606c1d2cccc9)
+
+[:movie_camera: Lien vers démo loom](https://www.loom.com/share/9a466ce8887846d4aa1b606c1d2cccc9)
 
 [:link: prmUserAreaExpandableAfter/README.md](prmUserAreaExpandableAfter/README.md)
 
