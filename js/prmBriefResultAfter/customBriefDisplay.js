@@ -2,9 +2,14 @@ class customBriefDisplayController {
     constructor() {
         console.log('---->33PUDB customBriefDisplayController');
         console.log(this);
-        /******************* */
-        /* Mise en forme PCI */
-        /******************* */
+        /***********************************/
+        /* Mise en forme des résultats CD */
+        /********************************* */
+        //Nous utilisons des champs locaux pour alimenter les 2ème & 3ème lignes du brief display. 
+        //Les champs Auteurs publisher et partof (pour lesa rticles) utilisé initialement pour le brief display ne remontent plus pour PCI. 
+        //Ce correctif permet de récupérer les champs Pnx et les afficher dans l'affichage abrégé.
+        /**************************************************************************************** */
+        //La notice vient de l'index central
         if (this.parentCtrl.item.context == "PC") {
             var firstLinetext = [];
             var auteur = this.parentCtrl.item.pnx.display.creator;
@@ -12,7 +17,7 @@ class customBriefDisplayController {
             var pubDate = this.parentCtrl.item.pnx.display.creationdate;
             var ispartof = this.parentCtrl.item.pnx.display.ispartof;
             var hSecondValue= {};
-            /*Seconde ligne on envoie au composant la zone de l'adresse biblio ou les ref de la publication sdont l'article est tiré*/
+            /*Seconde ligne on envoie au composant la zone de l'adresse biblio ou les ref. de la publication dont l'article est tiré*/
             var adresse =  editeur + " : " + pubDate;
             if (typeof ispartof === "undefined") {
                 hSecondValue = {
@@ -54,17 +59,20 @@ class customBriefDisplayController {
             this.parentCtrl.otherLines = firstLinetext;
         }
         console.log(this.parentCtrl.otherLines);
-        // console.log(this.parentCtrl.item.pnx.control.recordid[0]);
-        // console.log(this.parentCtrl.item.context);
-        // console.log(this.parentCtrl.item.pnx.control.recordid[0]);
         /****************************************************************************** */
         /* Empêche l'affichage des deux champs lds01 dans le cas d'une notice fusionnée */
         /****************************************************************************** */
+        /*Lorsqu'une notice est fusionnée Primo conserve tous les champs locaux. Ainsi le*/
+        /* champ lds01 que nous utilisons pour afficher l'adresse bibliographique de la  */
+        /*publication est doublé. Ce module ne conserve que le champ construit à partir  */
+        /*de la notice Unimarc.*/
+        //Test sur la notice fusionnée
         if (this.parentCtrl.item.context == "L" && this.parentCtrl.item.pnx.control.recordid[0].startsWith('dedup')) {
             console.log('dedup');
             var firstLinetext = [];
             var auteur = this.parentCtrl.item.pnx.display.lds02;
             var adresse = this.parentCtrl.item.pnx.display.lds01[0];
+             /*Seconde ligne on envoie au composant la zone de l'adresse biblio*/
             console.log(adresse);
             var hSecondValue = {
                 clazz: "media-publisher",
@@ -78,6 +86,7 @@ class customBriefDisplayController {
                 delimiter: " ; "
             };
             firstLinetext.unshift(hSecondLine);
+            /*Première ligne on envoie au composant les auteurs*/
             var hFirstValue = {
                 clazz: "media-creator",
                 codes: [""],
@@ -89,16 +98,12 @@ class customBriefDisplayController {
                 values: [hFirstValue],
                 delimiter: " ; "
             };
-            // console.log(firstLinetext);
             firstLinetext.unshift(hFirstLine);
             this.parentCtrl.otherLines = firstLinetext;
         }
 
 
     }
-    //   get recordid() {
-    //     return this.parentCtrl.item.pnx.control.recordid[0];
-    //   }
 }
 
 export let customBriefDisplayConfig = {

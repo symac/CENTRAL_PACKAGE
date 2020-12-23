@@ -1,5 +1,6 @@
 
 class customGalleryDisplayController {
+  //Ajoute l'auteur et l'édieur sous la vignette du document.
     constructor($element){
       setTimeout (()=>{
         this.$element = $element;

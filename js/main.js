@@ -18,26 +18,40 @@ import {changeLinkToCollectionDiscoveryConfig} from './prmCollectionNavigationBr
 
 let app = angular.module('centralCustom',[]);
 if (app){
+    //Customisation de la Top Level facet
     app.component('prmFacetExactAfter', tLevelFacetteConfig);
+    //Customisation de l'écran d'authentification. Redirection vers les Primo des établissements du réseau
     app.component('prmLoginAfter', authentificationAutresInstConfig);
+    //Customisation de l'affichage des notices dan sla liste des résultats
     app.component('prmBriefResultAfter', customBriefDisplayConfig);
+    //Customisation de l'affichage des le collection discovery : ajoute l'auteur et l'édieur sous la vignette du document.
     app.component('prmGalleryItemAfter', customGalleryDisplayConfig);
+    //Remonte la deuxième mention de disponibilté qui est parfois non affichée quand notices imprimés et électroniques ont été fusionnées 
     app.component('prmSearchResultAvailabilityLineAfter', affDispoConfig);
+    //Affichage de la disponibilité des documents électroniques dans les autres institutions du réseau
     app.component('prmFullViewServiceContainerAfter', dispoElecAutresInstConfig);
+    //Empêche la réservation si l'emprunt date d'il y a moins de 7 jours (durée maximale de prolongation dans le réseau) 
+    //+ Supprime des informations inutiles dans la liste des exemplaires empruntés
     app.component('prmLoanAfter',itemInLoanConfig);
+    //Permet de forcer l'authentification à a partir d'une authentification externe (bug ENT UB)
     app.component('prmAuthenticationAfter',forceAuthConfig);
-    // app.component('prmSearchBarAfter',showAlertMessageConfig);
-    // app.component('prmSearchResultThumbnailContainerAfter',getThumbnailConfig);
+    //Ajoute un pied de page avec les logos des autres institutions membres du réseau et le lien vers leurs catalogues
     app.component('prmExploreFooterAfter',logosInstsConfig);
+    //Clique et collecte : Ajoute un bouton panier dans le menu principale pour les utilisateurs authentifiés
+    app.component('prmUserAreaExpandableAfter',panierConfig);
+    //Clique et collecte : Ajoute un  lien vers l'application de prise de rdv dans l'onglet réservation du compte lecteur
+    app.component('prmRequestsAfter',panierCompteLecteurConfig);
+    //Collection discovery : modifie les liens vers les sélections dans l'affichage détaillé pour afficher la sélection dans la vue de l'institution propriétaire
+    app.component('prmCollectionNavigationBreadcrumbsItemAfter',changeLinkToCollectionDiscoveryConfig);
+    
     // app.component('prmBackToLibrarySearchButtonAfter',alertMessageConfig);
     // app.service('messageService', MessageService);
     // app.component(PrmTopbarAfterConfig.name, PrmTopbarAfterConfig.config);
-    app.component('prmUserAreaExpandableAfter',panierConfig);
-    app.component('prmRequestsAfter',panierCompteLecteurConfig);
-    app.component('prmCollectionNavigationBreadcrumbsItemAfter',changeLinkToCollectionDiscoveryConfig);
     // app.component('prmCollectionGalleryHeaderAfter',modifyCollectionTopTitleConfig)
+    // app.component('prmSearchBarAfter',showAlertMessageConfig);
+    // app.component('prmSearchResultThumbnailContainerAfter',getThumbnailConfig);
 } 
-
+//Ajout d'un service permettant l'envoi des références vers ZoteroBib
 // START ------ Primo-ZoteroBib-Add-On ------/
 function insertActions(actions) {
     app.service('customActionService', function() {
