@@ -26,6 +26,11 @@ prm-personal-info md-input-container.md-input-has-value label:not(.md-no-float) 
   opacity: .8;
   transform: translate3d(0,15px,0) scale(0.85);
 }
+ /*desactivation border sur le bouton du choix du type d'authentification*/
+
+ md-dialog-content .disable-hover .md-button:hover, md-dialog-content .disable-hover button:hover, md-dialog-content .disable-hover .md-button:focus, md-dialog-content .disable-hover button:focus {
+  box-shadow: unset;
+}
 /*33PUDB_NETWORK_AFA_Authentification autres institutions*/
 /*#######################################################*/
 prm-login.layout-row  {
