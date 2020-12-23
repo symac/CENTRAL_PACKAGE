@@ -22,7 +22,7 @@ if (app){
     app.component('prmFacetExactAfter', tLevelFacetteConfig);
     //Customisation de l'écran d'authentification. Redirection vers les Primo des établissements du réseau
     app.component('prmLoginAfter', authentificationAutresInstConfig);
-    //Customisation de l'affichage des notices dan sla liste des résultats
+    //Customisation de l'affichage des notices dans la liste des résultats
     app.component('prmBriefResultAfter', customBriefDisplayConfig);
     //Customisation de l'affichage des le collection discovery : ajoute l'auteur et l'édieur sous la vignette du document.
     app.component('prmGalleryItemAfter', customGalleryDisplayConfig);
